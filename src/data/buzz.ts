@@ -238,7 +238,7 @@ export const avatarClass: Record<Creator["color"], string> = {
 };
 
 export function creatorOf(handle: string) {
-  return creators.find((c) => c.handle === handle) ?? creators[0];
+  return (creators.find((c) => c.handle === handle) ?? creators[0]) as Creator;
 }
 
 export function fmt(n: number) {
