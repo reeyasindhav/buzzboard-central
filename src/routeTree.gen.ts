@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as CreatorsRouteImport } from './routes/creators'
 import { Route as LeaderboardRouteImport } from './routes/leaderboard'
+import { Route as LoginRouteImport } from './routes/login'
 import { Route as SearchRouteImport } from './routes/search'
 import { Route as TrendingRouteImport } from './routes/trending'
 import { Route as CreatorsHandleRouteImport } from './routes/creators.$handle'
@@ -36,6 +37,11 @@ const CreatorsRoute = CreatorsRouteImport.update({
 const LeaderboardRoute = LeaderboardRouteImport.update({
   id: '/leaderboard',
   path: '/leaderboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SearchRoute = SearchRouteImport.update({
@@ -64,6 +70,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/creators': typeof CreatorsRouteWithChildren
   '/leaderboard': typeof LeaderboardRoute
+  '/login': typeof LoginRoute
   '/search': typeof SearchRoute
   '/trending': typeof TrendingRoute
   '/creators/$handle': typeof CreatorsHandleRoute
@@ -74,6 +81,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/creators': typeof CreatorsRouteWithChildren
   '/leaderboard': typeof LeaderboardRoute
+  '/login': typeof LoginRoute
   '/search': typeof SearchRoute
   '/trending': typeof TrendingRoute
   '/creators/$handle': typeof CreatorsHandleRoute
@@ -85,6 +93,7 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/creators': typeof CreatorsRouteWithChildren
   '/leaderboard': typeof LeaderboardRoute
+  '/login': typeof LoginRoute
   '/search': typeof SearchRoute
   '/trending': typeof TrendingRoute
   '/creators/$handle': typeof CreatorsHandleRoute
@@ -97,6 +106,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/creators'
     | '/leaderboard'
+    | '/login'
     | '/search'
     | '/trending'
     | '/creators/$handle'
@@ -107,6 +117,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/creators'
     | '/leaderboard'
+    | '/login'
     | '/search'
     | '/trending'
     | '/creators/$handle'
@@ -117,6 +128,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/creators'
     | '/leaderboard'
+    | '/login'
     | '/search'
     | '/trending'
     | '/creators/$handle'
@@ -128,6 +140,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   CreatorsRoute: typeof CreatorsRouteWithChildren
   LeaderboardRoute: typeof LeaderboardRoute
+  LoginRoute: typeof LoginRoute
   SearchRoute: typeof SearchRoute
   TrendingRoute: typeof TrendingRoute
   PostPostIdRoute: typeof PostPostIdRoute
@@ -161,6 +174,13 @@ declare module '@tanstack/react-router' {
       path: '/leaderboard'
       fullPath: '/leaderboard'
       preLoaderRoute: typeof LeaderboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/search': {
@@ -211,6 +231,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   CreatorsRoute: CreatorsRouteWithChildren,
   LeaderboardRoute: LeaderboardRoute,
+  LoginRoute: LoginRoute,
   SearchRoute: SearchRoute,
   TrendingRoute: TrendingRoute,
   PostPostIdRoute: PostPostIdRoute,
