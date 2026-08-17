@@ -93,7 +93,7 @@ export function PostCard({ post, index = 0 }: { post: Post; index?: number }) {
         </button>
         <button
           onClick={() => {
-            setSaved((v) => !v);
+            toggleSaved(post.id);
             toast(saved ? "Removed from saved" : "Saved to your board");
           }}
           className={cn(
