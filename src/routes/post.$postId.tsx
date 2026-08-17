@@ -18,14 +18,13 @@ const seedComments = [
 
 export const Route = createFileRoute("/post/$postId")({
   loader: ({ params }) => {
-    const post = posts.find((p) => p.id === params.postId);
-    if (!post) throw notFound();
-    return { post };
+    const post = posts.find((p) => p.id === params.postId) ?? null;
+    return { post, postId: params.postId };
   },
   head: ({ loaderData }) => {
-    if (!loaderData) {
+    if (!loaderData?.post) {
       return {
-        meta: [{ title: "Post not found — Buzzboard" }, { name: "robots", content: "noindex" }],
+        meta: [{ title: "Post — Buzzboard" }, { name: "robots", content: "noindex" }],
       };
     }
     const { post } = loaderData;
@@ -42,12 +41,29 @@ export const Route = createFileRoute("/post/$postId")({
 });
 
 function PostDetail() {
-  const { post } = Route.useLoaderData();
-  const author = creatorOf(post.authorHandle);
+  const { post: seedPost, postId } = Route.useLoaderData();
+  const { posts: allPosts } = useStore();
+  const post = seedPost ?? allPosts.find((p) => p.id === postId);
   const [liked, setLiked] = useState(false);
   const [draft, setDraft] = useState("");
   const [comments, setComments] = useState(seedComments);
-  const related = posts.filter((p) => p.id !== post.id && p.category === post.category).slice(0, 2);
+
+  if (!post) {
+    return (
+      <PageShell>
+        <h1 className="text-4xl font-bold">Post not found</h1>
+        <p className="mt-3 text-muted-foreground">This meme has left the timeline.</p>
+        <Link to="/" className="story-link mt-6 inline-block">
+          Back to feed
+        </Link>
+      </PageShell>
+    );
+  }
+
+  const author = creatorOf(post.authorHandle);
+  const related = allPosts
+    .filter((p) => p.id !== post.id && p.category === post.category)
+    .slice(0, 2);
 
   return (
     <PageShell>
