@@ -6,12 +6,14 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { MemeTile } from "@/components/meme-tile";
 import { UserAvatar } from "@/components/user-avatar";
+import { useStore } from "@/lib/store";
 import { creatorOf, fmt, type Post } from "@/data/buzz";
 
 export function PostCard({ post, index = 0 }: { post: Post; index?: number }) {
   const author = creatorOf(post.authorHandle);
+  const { saved: savedIds, toggleSaved } = useStore();
   const [liked, setLiked] = useState(false);
-  const [saved, setSaved] = useState(false);
+  const saved = savedIds.includes(post.id);
 
   return (
     <article
