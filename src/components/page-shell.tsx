@@ -20,8 +20,8 @@ export function PageHeading({
 }: {
   kicker: string;
   title: string;
-  accent?: string;
-  intro?: string;
+  accent?: string | undefined;
+  intro?: string | undefined;
 }) {
   return (
     <div className="animate-rise max-w-3xl">
