@@ -10,18 +10,73 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as CreatorsRouteImport } from './routes/creators'
+import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as LeaderboardRouteImport } from './routes/leaderboard'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as SearchRouteImport } from './routes/search'
+import { Route as SignupRouteImport } from './routes/signup'
+import { Route as SubmitRouteImport } from './routes/submit'
+import { Route as TermsRouteImport } from './routes/terms'
 import { Route as TrendingRouteImport } from './routes/trending'
 import { Route as CreatorsHandleRouteImport } from './routes/creators.$handle'
+import { Route as PostPostIdRouteImport } from './routes/post.$postId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CreatorsRoute = CreatorsRouteImport.update({
   id: '/creators',
   path: '/creators',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardRoute = DashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LeaderboardRoute = LeaderboardRouteImport.update({
+  id: '/leaderboard',
+  path: '/leaderboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SearchRoute = SearchRouteImport.update({
+  id: '/search',
+  path: '/search',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SignupRoute = SignupRouteImport.update({
+  id: '/signup',
+  path: '/signup',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SubmitRoute = SubmitRouteImport.update({
+  id: '/submit',
+  path: '/submit',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TrendingRoute = TrendingRouteImport.update({
@@ -34,38 +89,126 @@ const CreatorsHandleRoute = CreatorsHandleRouteImport.update({
   path: '/$handle',
   getParentRoute: () => CreatorsRoute,
 } as any)
+const PostPostIdRoute = PostPostIdRouteImport.update({
+  id: '/post/$postId',
+  path: '/post/$postId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/creators': typeof CreatorsRouteWithChildren
+  '/dashboard': typeof DashboardRoute
+  '/leaderboard': typeof LeaderboardRoute
+  '/login': typeof LoginRoute
+  '/privacy': typeof PrivacyRoute
+  '/search': typeof SearchRoute
+  '/signup': typeof SignupRoute
+  '/submit': typeof SubmitRoute
+  '/terms': typeof TermsRoute
   '/trending': typeof TrendingRoute
   '/creators/$handle': typeof CreatorsHandleRoute
+  '/post/$postId': typeof PostPostIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/creators': typeof CreatorsRouteWithChildren
+  '/dashboard': typeof DashboardRoute
+  '/leaderboard': typeof LeaderboardRoute
+  '/login': typeof LoginRoute
+  '/privacy': typeof PrivacyRoute
+  '/search': typeof SearchRoute
+  '/signup': typeof SignupRoute
+  '/submit': typeof SubmitRoute
+  '/terms': typeof TermsRoute
   '/trending': typeof TrendingRoute
   '/creators/$handle': typeof CreatorsHandleRoute
+  '/post/$postId': typeof PostPostIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/creators': typeof CreatorsRouteWithChildren
+  '/dashboard': typeof DashboardRoute
+  '/leaderboard': typeof LeaderboardRoute
+  '/login': typeof LoginRoute
+  '/privacy': typeof PrivacyRoute
+  '/search': typeof SearchRoute
+  '/signup': typeof SignupRoute
+  '/submit': typeof SubmitRoute
+  '/terms': typeof TermsRoute
   '/trending': typeof TrendingRoute
   '/creators/$handle': typeof CreatorsHandleRoute
+  '/post/$postId': typeof PostPostIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/creators' | '/trending' | '/creators/$handle'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/creators'
+    | '/dashboard'
+    | '/leaderboard'
+    | '/login'
+    | '/privacy'
+    | '/search'
+    | '/signup'
+    | '/submit'
+    | '/terms'
+    | '/trending'
+    | '/creators/$handle'
+    | '/post/$postId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/creators' | '/trending' | '/creators/$handle'
-  id: '__root__' | '/' | '/creators' | '/trending' | '/creators/$handle'
+  to:
+    | '/'
+    | '/about'
+    | '/creators'
+    | '/dashboard'
+    | '/leaderboard'
+    | '/login'
+    | '/privacy'
+    | '/search'
+    | '/signup'
+    | '/submit'
+    | '/terms'
+    | '/trending'
+    | '/creators/$handle'
+    | '/post/$postId'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/creators'
+    | '/dashboard'
+    | '/leaderboard'
+    | '/login'
+    | '/privacy'
+    | '/search'
+    | '/signup'
+    | '/submit'
+    | '/terms'
+    | '/trending'
+    | '/creators/$handle'
+    | '/post/$postId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
   CreatorsRoute: typeof CreatorsRouteWithChildren
+  DashboardRoute: typeof DashboardRoute
+  LeaderboardRoute: typeof LeaderboardRoute
+  LoginRoute: typeof LoginRoute
+  PrivacyRoute: typeof PrivacyRoute
+  SearchRoute: typeof SearchRoute
+  SignupRoute: typeof SignupRoute
+  SubmitRoute: typeof SubmitRoute
+  TermsRoute: typeof TermsRoute
   TrendingRoute: typeof TrendingRoute
+  PostPostIdRoute: typeof PostPostIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -77,11 +220,74 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/creators': {
       id: '/creators'
       path: '/creators'
       fullPath: '/creators'
       preLoaderRoute: typeof CreatorsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/leaderboard': {
+      id: '/leaderboard'
+      path: '/leaderboard'
+      fullPath: '/leaderboard'
+      preLoaderRoute: typeof LeaderboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/search': {
+      id: '/search'
+      path: '/search'
+      fullPath: '/search'
+      preLoaderRoute: typeof SearchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/signup': {
+      id: '/signup'
+      path: '/signup'
+      fullPath: '/signup'
+      preLoaderRoute: typeof SignupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/submit': {
+      id: '/submit'
+      path: '/submit'
+      fullPath: '/submit'
+      preLoaderRoute: typeof SubmitRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/trending': {
@@ -97,6 +303,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/creators/$handle'
       preLoaderRoute: typeof CreatorsHandleRouteImport
       parentRoute: typeof CreatorsRoute
+    }
+    '/post/$postId': {
+      id: '/post/$postId'
+      path: '/post/$postId'
+      fullPath: '/post/$postId'
+      preLoaderRoute: typeof PostPostIdRouteImport
+      parentRoute: typeof rootRouteImport
     }
   }
 }
@@ -115,8 +328,18 @@ const CreatorsRouteWithChildren = CreatorsRoute._addFileChildren(
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
   CreatorsRoute: CreatorsRouteWithChildren,
+  DashboardRoute: DashboardRoute,
+  LeaderboardRoute: LeaderboardRoute,
+  LoginRoute: LoginRoute,
+  PrivacyRoute: PrivacyRoute,
+  SearchRoute: SearchRoute,
+  SignupRoute: SignupRoute,
+  SubmitRoute: SubmitRoute,
+  TermsRoute: TermsRoute,
   TrendingRoute: TrendingRoute,
+  PostPostIdRoute: PostPostIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

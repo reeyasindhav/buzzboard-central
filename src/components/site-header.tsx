@@ -5,6 +5,17 @@ import { Search, Zap, Menu, X } from "lucide-react";
 import { useAuth } from "@/lib/auth";
 import { UserAvatar } from "@/components/user-avatar";
 import { cn } from "@/lib/utils";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
 
 const nav = [
   { to: "/", label: "Explore" },
@@ -73,15 +84,32 @@ export function SiteHeader() {
                   className="hover-lift"
                 />
               </Link>
-              <button
-                onClick={() => {
-                  signOut();
-                  navigate({ to: "/" });
-                }}
-                className="hidden text-sm text-muted-foreground hover:text-foreground sm:block"
-              >
-                Log out
-              </button>
+              <AlertDialog>
+                <AlertDialogTrigger asChild>
+                  <button className="hidden text-sm text-muted-foreground hover:text-foreground sm:block">
+                    Log out
+                  </button>
+                </AlertDialogTrigger>
+                <AlertDialogContent>
+                  <AlertDialogHeader>
+                    <AlertDialogTitle>Log out?</AlertDialogTitle>
+                    <AlertDialogDescription>
+                      You will be signed out of Buzzboard on this device.
+                    </AlertDialogDescription>
+                  </AlertDialogHeader>
+                  <AlertDialogFooter>
+                    <AlertDialogCancel>Cancel</AlertDialogCancel>
+                    <AlertDialogAction
+                      onClick={() => {
+                        signOut();
+                        navigate({ to: "/" });
+                      }}
+                    >
+                      Log out
+                    </AlertDialogAction>
+                  </AlertDialogFooter>
+                </AlertDialogContent>
+              </AlertDialog>
             </div>
           ) : (
             <Link

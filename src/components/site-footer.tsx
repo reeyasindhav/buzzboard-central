@@ -12,6 +12,12 @@ export function SiteFooter() {
           <Link to="/about" className="story-link hover:text-foreground">
             About
           </Link>
+          <Link to="/terms" className="story-link hover:text-foreground">
+            Terms
+          </Link>
+          <Link to="/privacy" className="story-link hover:text-foreground">
+            Privacy
+          </Link>
           <Link to="/trending" className="story-link hover:text-foreground">
             Trending
           </Link>

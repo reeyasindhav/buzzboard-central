@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 
-import { PageShell } from "@/components/page-shell";
 import { PostCard } from "@/components/post-card";
 import { UserAvatar } from "@/components/user-avatar";
 import { creators, fmt, posts } from "@/data/buzz";
 import { cn } from "@/lib/utils";
+import { useStore } from "@/lib/store";
 
 export const Route = createFileRoute("/creators/$handle")({
   loader: ({ params }) => {
@@ -34,11 +34,12 @@ export const Route = createFileRoute("/creators/$handle")({
 
 function CreatorProfile() {
   const { creator } = Route.useLoaderData();
-  const [following, setFollowing] = useState(false);
+  const following = useStore((state) => state.following.includes(creator.handle));
+  const toggleFollow = useStore((state) => state.toggleFollow);
   const mine = posts.filter((p) => p.authorHandle === creator.handle);
 
   return (
-    <PageShell>
+    <div className="animate-rise">
       <Link to="/creators" className="label-mono text-muted-foreground hover:text-foreground">
         ← All creators
       </Link>
@@ -51,7 +52,7 @@ function CreatorProfile() {
           <p className="mt-3 max-w-xl text-sm text-muted-foreground">{creator.bio}</p>
         </div>
         <button
-          onClick={() => setFollowing((v) => !v)}
+          onClick={() => toggleFollow(creator.handle)}
           className={cn(
             "rounded-full px-6 py-2.5 text-sm font-medium transition-all active:scale-95",
             following
@@ -89,6 +90,7 @@ function CreatorProfile() {
           <p className="card-surface p-10 text-muted-foreground">No posts yet.</p>
         ) : null}
       </div>
-    </PageShell>
+    </div>
   );
+  // test
 }

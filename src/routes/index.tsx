@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowUpRight, TrendingUp, Sparkles } from "lucide-react";
+import { ArrowUpRight, TrendingUp, Zap } from "lucide-react";
 
 import { PageShell, PageHeading } from "@/components/page-shell";
 import { PostCard } from "@/components/post-card";
@@ -122,7 +122,7 @@ function Explore() {
 
           <div className="animate-rise rounded-xl bg-ink p-6 text-background">
             <span className="flex h-9 w-9 items-center justify-center rounded-md bg-primary">
-              <Sparkles className="h-4 w-4 text-primary-foreground" />
+              <Zap className="h-4 w-4 text-primary-foreground" />
             </span>
             <p className="label-mono mt-5 opacity-70">Make some noise</p>
             <h3 className="mt-2 font-display text-2xl font-bold">Your brain has good taste.</h3>

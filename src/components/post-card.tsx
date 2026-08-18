@@ -7,11 +7,13 @@ import { cn } from "@/lib/utils";
 import { MemeTile } from "@/components/meme-tile";
 import { UserAvatar } from "@/components/user-avatar";
 import { creatorOf, fmt, type Post } from "@/data/buzz";
+import { useStore } from "@/lib/store";
 
 export function PostCard({ post, index = 0 }: { post: Post; index?: number }) {
   const author = creatorOf(post.authorHandle);
   const [liked, setLiked] = useState(false);
-  const [saved, setSaved] = useState(false);
+  const saved = useStore((state) => state.saved.includes(post.id));
+  const toggleSave = useStore((state) => state.toggleSave);
 
   return (
     <article
@@ -89,10 +91,22 @@ export function PostCard({ post, index = 0 }: { post: Post; index?: number }) {
           <Share2 className="h-4 w-4" />
           {fmt(post.shares)}
         </button>
+        {post.badge ? (
+          <span
+            className={cn(
+              "label-mono rounded-full px-3 py-1 text-xs font-semibold",
+              post.badge === "HOT" && "bg-primary text-primary-foreground",
+              post.badge === "RISING" && "bg-foreground text-background",
+              post.badge === "NEW" && "border border-border bg-card text-foreground",
+            )}
+          >
+            {post.badge}
+          </span>
+        ) : null}
         <button
           onClick={() => {
-            setSaved((v) => !v);
-            toast(saved ? "Removed from saved" : "Saved to your board");
+            toggleSave(post.id);
+            toast(saved ? "Removed from dashboard" : "Added to dashboard");
           }}
           className={cn(
             "ml-auto text-muted-foreground transition-colors hover:text-foreground",
@@ -102,11 +116,6 @@ export function PostCard({ post, index = 0 }: { post: Post; index?: number }) {
         >
           <Bookmark className={cn("h-4 w-4", saved && "fill-current")} />
         </button>
-        {post.badge ? (
-          <span className="label-mono rounded-sm border border-primary px-2 py-1 text-primary">
-            {post.badge}
-          </span>
-        ) : null}
       </footer>
     </article>
   );
