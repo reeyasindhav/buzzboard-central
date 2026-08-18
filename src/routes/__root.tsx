@@ -11,14 +11,9 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
-<<<<<<< HEAD
-import { AuthProvider } from "../lib/auth";
-import { Toasts } from "@/components/toasts";
-=======
 import { AuthProvider } from "@/lib/auth";
 import { StoreProvider } from "@/lib/store";
 import { Toaster } from "@/components/ui/sonner";
->>>>>>> 0d4ec58c09a4d3d2f04725b8a3fae466d037dd0c
 
 function NotFoundComponent() {
   return (
@@ -123,7 +118,6 @@ function RootShell({ children }: { children: ReactNode }) {
       <body>
         {children}
         <Scripts />
-        <Toasts />
       </body>
     </html>
   );
@@ -135,16 +129,11 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
-<<<<<<< HEAD
-        <Outlet />
-        <Toasts />
-=======
         <StoreProvider>
           {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
           <Outlet />
           <Toaster position="bottom-right" />
         </StoreProvider>
->>>>>>> 0d4ec58c09a4d3d2f04725b8a3fae466d037dd0c
       </AuthProvider>
     </QueryClientProvider>
   );

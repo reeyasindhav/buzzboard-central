@@ -9,6 +9,7 @@ import { UserAvatar } from "@/components/user-avatar";
 import { PostCard } from "@/components/post-card";
 import { creatorOf, creators, fmt, posts } from "@/data/buzz";
 import { cn } from "@/lib/utils";
+import { useStore } from "@/lib/store";
 
 const seedComments = [
   { handle: "luna.exe", body: "this is unreasonably accurate and I'm unwell about it", time: "4m" },
