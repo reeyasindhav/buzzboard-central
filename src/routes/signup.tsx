@@ -1,10 +1,6 @@
 import { useState } from "react";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-<<<<<<< HEAD
-import { Zap } from "lucide-react";
-=======
 import { Sparkles } from "lucide-react";
->>>>>>> 0d4ec58c09a4d3d2f04725b8a3fae466d037dd0c
 import { toast } from "sonner";
 
 import { PageShell } from "@/components/page-shell";
@@ -94,11 +90,7 @@ function SignupPage() {
               type="submit"
               className="flex w-full items-center justify-center gap-2 rounded-full bg-primary px-4 py-2.5 text-sm font-medium text-primary-foreground transition-transform hover:scale-[1.02]"
             >
-<<<<<<< HEAD
-              <Zap className="h-4 w-4" />
-=======
               <Sparkles className="h-4 w-4" />
->>>>>>> 0d4ec58c09a4d3d2f04725b8a3fae466d037dd0c
               Create account
             </button>
             <p className="text-center text-sm text-muted-foreground">
@@ -107,14 +99,6 @@ function SignupPage() {
                 Log in
               </Link>
             </p>
-<<<<<<< HEAD
-            <p className="text-center text-xs text-muted-foreground">
-              By creating an account, you agree to our{" "}
-              <Link to="/terms" className="story-link underline">Terms</Link> and{" "}
-              <Link to="/privacy" className="story-link underline">Privacy Policy</Link>.
-            </p>
-=======
->>>>>>> 0d4ec58c09a4d3d2f04725b8a3fae466d037dd0c
           </form>
         </div>
       </div>
