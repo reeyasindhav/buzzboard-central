@@ -17,6 +17,8 @@ type StoreValue = {
     tile: Tile;
   }) => Post;
   toggleSaved: (id: string) => void;
+  following: string[];
+  toggleFollow: (handle: string) => void;
 };
 
 const StoreContext = createContext<StoreValue | null>(null);
@@ -24,6 +26,7 @@ const StoreContext = createContext<StoreValue | null>(null);
 export function StoreProvider({ children }: { children: ReactNode }) {
   const [userPosts, setUserPosts] = useState<Post[]>([]);
   const [saved, setSaved] = useState<string[]>([]);
+  const [following, setFollowing] = useState<string[]>([]);
 
   useEffect(() => {
     try {
@@ -41,6 +44,11 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       posts: [...userPosts, ...seedPosts],
       userPosts,
       saved,
+      following,
+      toggleFollow: (handle) =>
+        setFollowing((prev) =>
+          prev.includes(handle) ? prev.filter((x) => x !== handle) : [handle, ...prev],
+        ),
       addPost: (input) => {
         const post: Post = {
           id: `u${Date.now()}`,
@@ -65,7 +73,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
           return next;
         }),
     }),
-    [userPosts, saved],
+    [userPosts, saved, following],
   );
 
   return <StoreContext.Provider value={value}>{children}</StoreContext.Provider>;

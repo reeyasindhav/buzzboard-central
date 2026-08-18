@@ -6,7 +6,6 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { MemeTile } from "@/components/meme-tile";
 import { UserAvatar } from "@/components/user-avatar";
-import { useStore } from "@/lib/store";
 import { creatorOf, fmt, type Post } from "@/data/buzz";
 import { useStore } from "@/lib/store";
 

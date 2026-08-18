@@ -118,7 +118,6 @@ function RootShell({ children }: { children: ReactNode }) {
       <body>
         {children}
         <Scripts />
-        <Toasts />
       </body>
     </html>
   );

@@ -34,8 +34,8 @@ export const Route = createFileRoute("/creators/$handle")({
 
 function CreatorProfile() {
   const { creator } = Route.useLoaderData();
-  const following = useStore((state) => state.following.includes(creator.handle));
-  const toggleFollow = useStore((state) => state.toggleFollow);
+  const { following: followingList, toggleFollow } = useStore();
+  const following = followingList.includes(creator.handle);
   const mine = posts.filter((p) => p.authorHandle === creator.handle);
 
   return (
