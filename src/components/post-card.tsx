@@ -6,14 +6,20 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { MemeTile } from "@/components/meme-tile";
 import { UserAvatar } from "@/components/user-avatar";
+import { useStore } from "@/lib/store";
 import { creatorOf, fmt, type Post } from "@/data/buzz";
 import { useStore } from "@/lib/store";
 
 export function PostCard({ post, index = 0 }: { post: Post; index?: number }) {
   const author = creatorOf(post.authorHandle);
+  const { saved: savedIds, toggleSaved } = useStore();
   const [liked, setLiked] = useState(false);
+<<<<<<< HEAD
   const saved = useStore((state) => state.saved.includes(post.id));
   const toggleSave = useStore((state) => state.toggleSave);
+=======
+  const saved = savedIds.includes(post.id);
+>>>>>>> 0d4ec58c09a4d3d2f04725b8a3fae466d037dd0c
 
   return (
     <article
@@ -105,8 +111,13 @@ export function PostCard({ post, index = 0 }: { post: Post; index?: number }) {
         ) : null}
         <button
           onClick={() => {
+<<<<<<< HEAD
             toggleSave(post.id);
             toast(saved ? "Removed from dashboard" : "Added to dashboard");
+=======
+            toggleSaved(post.id);
+            toast(saved ? "Removed from saved" : "Saved to your board");
+>>>>>>> 0d4ec58c09a4d3d2f04725b8a3fae466d037dd0c
           }}
           className={cn(
             "ml-auto text-muted-foreground transition-colors hover:text-foreground",

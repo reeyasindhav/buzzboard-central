@@ -15,11 +15,17 @@ import { Route as CreatorsRouteImport } from './routes/creators'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as LeaderboardRouteImport } from './routes/leaderboard'
 import { Route as LoginRouteImport } from './routes/login'
+<<<<<<< HEAD
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as SearchRouteImport } from './routes/search'
 import { Route as SignupRouteImport } from './routes/signup'
 import { Route as SubmitRouteImport } from './routes/submit'
 import { Route as TermsRouteImport } from './routes/terms'
+=======
+import { Route as SearchRouteImport } from './routes/search'
+import { Route as SignupRouteImport } from './routes/signup'
+import { Route as SubmitRouteImport } from './routes/submit'
+>>>>>>> 0d4ec58c09a4d3d2f04725b8a3fae466d037dd0c
 import { Route as TrendingRouteImport } from './routes/trending'
 import { Route as CreatorsHandleRouteImport } from './routes/creators.$handle'
 import { Route as PostPostIdRouteImport } from './routes/post.$postId'
@@ -54,11 +60,14 @@ const LoginRoute = LoginRouteImport.update({
   path: '/login',
   getParentRoute: () => rootRouteImport,
 } as any)
+<<<<<<< HEAD
 const PrivacyRoute = PrivacyRouteImport.update({
   id: '/privacy',
   path: '/privacy',
   getParentRoute: () => rootRouteImport,
 } as any)
+=======
+>>>>>>> 0d4ec58c09a4d3d2f04725b8a3fae466d037dd0c
 const SearchRoute = SearchRouteImport.update({
   id: '/search',
   path: '/search',
@@ -74,11 +83,14 @@ const SubmitRoute = SubmitRouteImport.update({
   path: '/submit',
   getParentRoute: () => rootRouteImport,
 } as any)
+<<<<<<< HEAD
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
   path: '/terms',
   getParentRoute: () => rootRouteImport,
 } as any)
+=======
+>>>>>>> 0d4ec58c09a4d3d2f04725b8a3fae466d037dd0c
 const TrendingRoute = TrendingRouteImport.update({
   id: '/trending',
   path: '/trending',
@@ -102,11 +114,17 @@ export interface FileRoutesByFullPath {
   '/dashboard': typeof DashboardRoute
   '/leaderboard': typeof LeaderboardRoute
   '/login': typeof LoginRoute
+<<<<<<< HEAD
   '/privacy': typeof PrivacyRoute
   '/search': typeof SearchRoute
   '/signup': typeof SignupRoute
   '/submit': typeof SubmitRoute
   '/terms': typeof TermsRoute
+=======
+  '/search': typeof SearchRoute
+  '/signup': typeof SignupRoute
+  '/submit': typeof SubmitRoute
+>>>>>>> 0d4ec58c09a4d3d2f04725b8a3fae466d037dd0c
   '/trending': typeof TrendingRoute
   '/creators/$handle': typeof CreatorsHandleRoute
   '/post/$postId': typeof PostPostIdRoute
@@ -118,11 +136,17 @@ export interface FileRoutesByTo {
   '/dashboard': typeof DashboardRoute
   '/leaderboard': typeof LeaderboardRoute
   '/login': typeof LoginRoute
+<<<<<<< HEAD
   '/privacy': typeof PrivacyRoute
   '/search': typeof SearchRoute
   '/signup': typeof SignupRoute
   '/submit': typeof SubmitRoute
   '/terms': typeof TermsRoute
+=======
+  '/search': typeof SearchRoute
+  '/signup': typeof SignupRoute
+  '/submit': typeof SubmitRoute
+>>>>>>> 0d4ec58c09a4d3d2f04725b8a3fae466d037dd0c
   '/trending': typeof TrendingRoute
   '/creators/$handle': typeof CreatorsHandleRoute
   '/post/$postId': typeof PostPostIdRoute
@@ -135,11 +159,17 @@ export interface FileRoutesById {
   '/dashboard': typeof DashboardRoute
   '/leaderboard': typeof LeaderboardRoute
   '/login': typeof LoginRoute
+<<<<<<< HEAD
   '/privacy': typeof PrivacyRoute
   '/search': typeof SearchRoute
   '/signup': typeof SignupRoute
   '/submit': typeof SubmitRoute
   '/terms': typeof TermsRoute
+=======
+  '/search': typeof SearchRoute
+  '/signup': typeof SignupRoute
+  '/submit': typeof SubmitRoute
+>>>>>>> 0d4ec58c09a4d3d2f04725b8a3fae466d037dd0c
   '/trending': typeof TrendingRoute
   '/creators/$handle': typeof CreatorsHandleRoute
   '/post/$postId': typeof PostPostIdRoute
@@ -153,11 +183,17 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/leaderboard'
     | '/login'
+<<<<<<< HEAD
     | '/privacy'
     | '/search'
     | '/signup'
     | '/submit'
     | '/terms'
+=======
+    | '/search'
+    | '/signup'
+    | '/submit'
+>>>>>>> 0d4ec58c09a4d3d2f04725b8a3fae466d037dd0c
     | '/trending'
     | '/creators/$handle'
     | '/post/$postId'
@@ -169,11 +205,17 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/leaderboard'
     | '/login'
+<<<<<<< HEAD
     | '/privacy'
     | '/search'
     | '/signup'
     | '/submit'
     | '/terms'
+=======
+    | '/search'
+    | '/signup'
+    | '/submit'
+>>>>>>> 0d4ec58c09a4d3d2f04725b8a3fae466d037dd0c
     | '/trending'
     | '/creators/$handle'
     | '/post/$postId'
@@ -185,11 +227,17 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/leaderboard'
     | '/login'
+<<<<<<< HEAD
     | '/privacy'
     | '/search'
     | '/signup'
     | '/submit'
     | '/terms'
+=======
+    | '/search'
+    | '/signup'
+    | '/submit'
+>>>>>>> 0d4ec58c09a4d3d2f04725b8a3fae466d037dd0c
     | '/trending'
     | '/creators/$handle'
     | '/post/$postId'
@@ -202,11 +250,17 @@ export interface RootRouteChildren {
   DashboardRoute: typeof DashboardRoute
   LeaderboardRoute: typeof LeaderboardRoute
   LoginRoute: typeof LoginRoute
+<<<<<<< HEAD
   PrivacyRoute: typeof PrivacyRoute
   SearchRoute: typeof SearchRoute
   SignupRoute: typeof SignupRoute
   SubmitRoute: typeof SubmitRoute
   TermsRoute: typeof TermsRoute
+=======
+  SearchRoute: typeof SearchRoute
+  SignupRoute: typeof SignupRoute
+  SubmitRoute: typeof SubmitRoute
+>>>>>>> 0d4ec58c09a4d3d2f04725b8a3fae466d037dd0c
   TrendingRoute: typeof TrendingRoute
   PostPostIdRoute: typeof PostPostIdRoute
 }
@@ -255,6 +309,7 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LoginRouteImport
       parentRoute: typeof rootRouteImport
     }
+<<<<<<< HEAD
     '/privacy': {
       id: '/privacy'
       path: '/privacy'
@@ -262,6 +317,8 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PrivacyRouteImport
       parentRoute: typeof rootRouteImport
     }
+=======
+>>>>>>> 0d4ec58c09a4d3d2f04725b8a3fae466d037dd0c
     '/search': {
       id: '/search'
       path: '/search'
@@ -283,6 +340,7 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SubmitRouteImport
       parentRoute: typeof rootRouteImport
     }
+<<<<<<< HEAD
     '/terms': {
       id: '/terms'
       path: '/terms'
@@ -290,6 +348,8 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
+=======
+>>>>>>> 0d4ec58c09a4d3d2f04725b8a3fae466d037dd0c
     '/trending': {
       id: '/trending'
       path: '/trending'
@@ -333,11 +393,17 @@ const rootRouteChildren: RootRouteChildren = {
   DashboardRoute: DashboardRoute,
   LeaderboardRoute: LeaderboardRoute,
   LoginRoute: LoginRoute,
+<<<<<<< HEAD
   PrivacyRoute: PrivacyRoute,
   SearchRoute: SearchRoute,
   SignupRoute: SignupRoute,
   SubmitRoute: SubmitRoute,
   TermsRoute: TermsRoute,
+=======
+  SearchRoute: SearchRoute,
+  SignupRoute: SignupRoute,
+  SubmitRoute: SubmitRoute,
+>>>>>>> 0d4ec58c09a4d3d2f04725b8a3fae466d037dd0c
   TrendingRoute: TrendingRoute,
   PostPostIdRoute: PostPostIdRoute,
 }

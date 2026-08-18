@@ -11,8 +11,14 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+<<<<<<< HEAD
 import { AuthProvider } from "../lib/auth";
 import { Toasts } from "@/components/toasts";
+=======
+import { AuthProvider } from "@/lib/auth";
+import { StoreProvider } from "@/lib/store";
+import { Toaster } from "@/components/ui/sonner";
+>>>>>>> 0d4ec58c09a4d3d2f04725b8a3fae466d037dd0c
 
 function NotFoundComponent() {
   return (
@@ -79,14 +85,20 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Buzzboard — Meme & Viral Content Platform" },
+      {
+        name: "description",
+        content:
+          "Buzzboard is a fast, community-driven hub for discovering, reacting to and curating viral memes.",
+      },
+      { name: "author", content: "Buzzboard" },
+      { property: "og:title", content: "Buzzboard — Meme & Viral Content Platform" },
+      {
+        property: "og:description",
+        content: "Discover, react to and curate the internet's best memes.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
       {
@@ -123,8 +135,16 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
+<<<<<<< HEAD
         <Outlet />
         <Toasts />
+=======
+        <StoreProvider>
+          {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+          <Outlet />
+          <Toaster position="bottom-right" />
+        </StoreProvider>
+>>>>>>> 0d4ec58c09a4d3d2f04725b8a3fae466d037dd0c
       </AuthProvider>
     </QueryClientProvider>
   );

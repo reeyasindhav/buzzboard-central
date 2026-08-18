@@ -79,11 +79,14 @@ function LoginPage() {
                 Create an account
               </Link>
             </p>
+<<<<<<< HEAD
             <p className="text-center text-xs text-muted-foreground">
               By logging in, you agree to our{" "}
               <Link to="/terms" className="story-link underline">Terms</Link> and{" "}
               <Link to="/privacy" className="story-link underline">Privacy Policy</Link>.
             </p>
+=======
+>>>>>>> 0d4ec58c09a4d3d2f04725b8a3fae466d037dd0c
           </form>
         </div>
         <div className="hidden md:block">
